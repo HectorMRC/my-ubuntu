@@ -1,5 +1,9 @@
 #!/bin/bash
 
+STYLES_PATH=${PWD}/styles
+THEMES_PATH=${STYLES_PATH}/themes
+ICONS_PATH=${STYLES_PATH}/icons
+
 if !([ "$DISPLAY" ] || [ "$WAYLAND_DISPLAY" ] || [ "$MIR_SOCKET" ]); then
     echo "This Ubuntu has no graphic session"
     exit
@@ -14,6 +18,10 @@ if !(apt list | grep chrome-gnome-shell); then
 	echo "Installing Gnome Shell from apt"
     sudo apt install chrome-gnome-shell
 fi
+
+echo "Unziping styles from ${STYLES_PATH}"
+unzip -d ${THEMES_PATH} ${THEMES_PATH}/*
+unzip -d ${ICONS_PATH} ${ICONS_PATH}/*
 
 mkdir -p ~/.icons
 cp -r ${PWD}/styles/icons/McMojave/McMojave-circle-dark ~/.icons/
