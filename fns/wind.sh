@@ -3,14 +3,10 @@
 BASHRC_PATH=~/.bashrc
 
 printf "\n\n# Updated by a setup script at $(date)\n" $USER >> ${BASHRC_PATH}
-printf 'function gitup {
-  git add .
-  
+printf 'function wind {
   if [ -z ${1+x} ]; then
-    git commit -m "updates";
+    xdg-open ${PWD}
   else
-    git commit -m "${1}"
+    xdg-open ${1}
   fi
-
-  git push
 }\n' $USER >> ${BASHRC_PATH}
