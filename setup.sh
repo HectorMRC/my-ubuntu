@@ -5,6 +5,8 @@ BASICS_PATH=${PWD}/basics
 TOOLS_PATH=${PWD}/tools
 LANGS_PATH=${PWD}/langs
 CUSTOM_PATH=${PWD}/custom
+BASHRC_PATH=./bashrc
+BASH_BIN="/bin/bash"
 
 execute_all_from() {
 	for file in ${1}/*.sh
@@ -16,6 +18,7 @@ execute_all_from() {
 
 sudo apt -y update
 execute_all_from ${BASICS_PATH}
+
 execute_all_from ${TOOLS_PATH}
 execute_all_from ${LANGS_PATH}
 execute_all_from ${CUSTOM_PATH}
